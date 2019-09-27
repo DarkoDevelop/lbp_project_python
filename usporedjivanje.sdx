@@ -1,0 +1,20 @@
+usporedjivanje ( int *IN, int m, int n, int *OUT ) {
+	//IN - pointer na ulaznu matricu
+	//m,n - dimenzije ulazne matrice
+	//OUT - pointer na izlaznu matricu
+	int i, j;	//brojaci za algoritam
+
+	for ( i=1; i<m-1; i++ ) {
+		for( j=1; j<n-1; j++ ) {
+			OUT[i][j]=0;
+			if ( IN [i-1][j-1] >= IN [i][j] ) OUT[i-1][j-1] += 128;
+			if ( IN [i-1][j] >= IN [i][j] ) OUT[i-1][j-1] += 64;
+			if ( IN [i-1][j+1] >= IN [i][j] ) OUT[i-1][j-1] += 32;
+			if ( IN [i][j+1] >= IN [i][j] ) OUT[i-1][j-1] += 16;
+			if ( IN [i+1][j+1] >= IN [i][j] ) OUT[i-1][j-1] += 8;
+			if ( IN [i+1][j1] >= IN [i][j] ) OUT[i-1][j-1] += 4;
+			if ( IN [i+1][j-1] >= IN [i][j] ) OUT[i-1][j-1] += 2;
+			if ( IN [i][j-1] >= IN [i][j] ) OUT[i-1][j-1] += 1;
+		}
+	}
+}
